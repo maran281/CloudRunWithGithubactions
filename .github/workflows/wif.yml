@@ -6,8 +6,11 @@ on:
             - main
 
 jobs:
-    deploy:
+    get-secrets:
         runs-on: ubuntu-latest
+        permissions:
+            contents: 'read'
+            id-token: 'write'
 
         steps:
             - name: checkout my code
