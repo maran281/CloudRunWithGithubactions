@@ -19,6 +19,7 @@ jobs:
               with:
                 token_format: 'access_token'
                 workload_identity_provider: 'projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/providers/github'
+                service_account: 'github-actions@manojproject1-396309.iam.gserviceaccount.com'
             
             - name: 'setup my cloud SDK'
               uses: 'google-github-actions/setup-gcloud@v1'
