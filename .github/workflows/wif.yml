@@ -1,0 +1,36 @@
+name: List down the gcp secrets
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout my code
+              uses: actions/checkout@v2
+
+            - name: setup my docker
+              uses: docker/setup-buildx-action@v4
+             
+            - id: 'auth'
+              name: 'Authenticate to my google account'
+              uses: 'google-github-actions/auth@v1'
+              with:
+                token_format: 'access_token'
+                workload_identity_provider: 'projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/providers/github'
+            
+            - name: 'setup my cloud SDK'
+              uses: 'google-github-actions/setup-gcloud@v1'
+
+            - id: 'gcloud'
+              name: 'gcloud'
+              run: |-
+                gcloud secrets list
+                
+
+
+#principal://iam.googleapis.com/projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/subject/SUBJECT_ATTRIBUTE_VALUE
