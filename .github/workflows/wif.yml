@@ -46,5 +46,5 @@ jobs:
                 docker push us-east1-docker.pkg.dev/manojproject1-396309/my-docker-images-repo/githubactioncodeimage1
                 
 
-                
+              
 #principal://iam.googleapis.com/projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/subject/SUBJECT_ATTRIBUTE_VALUE
