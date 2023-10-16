@@ -46,11 +46,11 @@ jobs:
             - name: 'gcloud credential helper'
               run: |
                 gcloud auth configure-docker us-east1-docker.pkg.dev
-                
+
             - name: 'Push the docker image to artifact registry'
               run: |
                 docker buildx create --use
                 docker push us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1
                 
-          
+        
 #principal://iam.googleapis.com/projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/subject/SUBJECT_ATTRIBUTE_VALUE
