@@ -40,10 +40,13 @@ jobs:
                 docker buildx create --use
                 docker build -t us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1 .
             
+            #For below step read these 2 articles:
+            # https://stackoverflow.com/questions/75840164/permission-artifactregistry-repositories-uploadartifacts-denied-on-resource-usin
+            # https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling#auth
             - name: 'gcloud credential helper'
               run: |
                 gcloud auth configure-docker us-east1-docker.pkg.dev
-                
+
             - name: 'Check the SA roles'
               run: |
                 gcloud projects get-iam-policy manojproject1-396309 \
