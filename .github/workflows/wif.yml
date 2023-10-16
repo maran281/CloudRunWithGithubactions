@@ -40,20 +40,21 @@ jobs:
                 docker buildx create --use
                 docker build -t us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1 .
             
-            - name: 'Check the project code'
+            - name: 'gcloud credential helper'
               run: |
-                gcloud config get-value project
-          #  - name: 'Check the SA roles'
-           #   run: |
-            #    gcloud projects get-iam-policy manojproject1-396309 \
-             #   --flatten="bindings[].members" \
-              #  --format="table(bindings.role,bindings.members)" \
-               # --filter="bindings.members:serviceAccount:github-actions-latest@manojproject1-396309.iam.gserviceaccount.com"
+                gcloud auth configure-docker us-east1-docker.pkg.dev
+                
+            - name: 'Check the SA roles'
+              run: |
+                gcloud projects get-iam-policy manojproject1-396309 \
+                --flatten="bindings[].members" \
+                --format="table(bindings.role,bindings.members)" \
+                --filter="bindings.members:serviceAccount:github-actions-latest@manojproject1-396309.iam.gserviceaccount.com"
             
-            #- name: 'Push the docker image to artifact registry'
-             # run: |
-              #  docker buildx create --use
-               # docker push us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1
+            - name: 'Push the docker image to artifact registry'
+              run: |
+                docker buildx create --use
+                docker push us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1
                 
           
 #principal://iam.googleapis.com/projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/subject/SUBJECT_ATTRIBUTE_VALUE
