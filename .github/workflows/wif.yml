@@ -35,10 +35,10 @@ jobs:
             - name: 'Setup Docker BuildX'
               uses: docker/setup-buildx-action@v1
 
-            - name: 'Build the docker image'
-              run: |
-                docker buildx create --use
-                docker build -t us-east1-docker.pkg.dev/manojproject1-396309/my-docker-images-repo/githubactioncodeimage1 .
+          #  - name: 'Build the docker image'
+           #   run: |
+            #    docker buildx create --use
+             #   docker build -t us-east1-docker.pkg.dev/manojproject1-396309/my-docker-images-repo/githubactioncodeimage1 .
             
             - name: 'Check the SA roles'
               run: |
