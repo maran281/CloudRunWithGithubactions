@@ -38,12 +38,12 @@ jobs:
             - name: 'Build the docker image'
               run: |
                 docker buildx create --use
-                docker build -t us-east1-docker.pkg.dev/$PROJECT_ID/my-docker-images-repo/githubactioncodeimage1 .
+                docker build -t us-east1-docker.pkg.dev/manojproject1-396309/my-docker-images-repo/githubactioncodeimage1 .
             
             - name: 'Push the docker image to artifact registry'
               run: |
                 docker buildx create --use
-                docker push us-east1-docker.pkg.dev/$PROJECT_ID/my-docker-images-repo/githubactioncodeimage1
+                docker push us-east1-docker.pkg.dev/manojproject1-396309/my-docker-images-repo/githubactioncodeimage1
                 
 
                 
