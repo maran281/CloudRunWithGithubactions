@@ -3,7 +3,7 @@ provider "google" {
     region = var.region_name
 }
 
-resource "google_cloud_run_service" "my-second-cloud-run-service" {
+resource "google_cloud_run_service" "my-second-cloudrun-service" {
     name = var.service_name
     location = var.service_location
     template {
