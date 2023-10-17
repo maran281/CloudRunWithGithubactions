@@ -40,7 +40,9 @@ jobs:
                 docker buildx create --use
                 docker build -t us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1 .
             
-            #For below step read these 2 articles:
+            
+            #Below command is used is used to configure Docker to authenticate to Artifact Registry Docker repositories 1. The us-east1-docker.pkg.dev is the hostname of the repository that you want to authenticate with 1.
+            #You can read more about it in below links
             # https://stackoverflow.com/questions/75840164/permission-artifactregistry-repositories-uploadartifacts-denied-on-resource-usin
             # https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling#auth
             - name: 'gcloud credential helper'
@@ -51,6 +53,13 @@ jobs:
               run: |
                 docker buildx create --use
                 docker push us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1
+            
+            - name: 'Initialize the terraform'
+              run: |
+                cd CloudRunWithGithubactions/terraform
+                terraform init
+                terraform apply -auto-approve
+                
                 
         
 #principal://iam.googleapis.com/projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/subject/SUBJECT_ATTRIBUTE_VALUE

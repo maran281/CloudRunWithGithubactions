@@ -9,7 +9,7 @@ resource "google_cloud_run_service" "my-second-cloud-run-service" {
     template {
         spec {
           containers {
-            image="us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/myimage1"
+            image="us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1"
           }
         }
     }
