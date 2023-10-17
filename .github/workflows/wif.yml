@@ -56,7 +56,7 @@ jobs:
             
             - name: 'Initialize the terraform'
               run: |
-                cd CloudRunWithGithubactions/terraform
+                cd terraform
                 terraform init
                 terraform apply -auto-approve
                 
