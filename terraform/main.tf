@@ -23,7 +23,7 @@ resource "google_cloud_run_service" "my-second-cloudrun-service" {
 data "google_iam_policy" "noauth" {
     binding {
       role = "roles/run.invoker"
-      members = ["allusers"]
+      members = ["allUsers"]
     }
 }
 
