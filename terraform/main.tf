@@ -3,6 +3,14 @@ provider "google" {
     region = var.region_name
 }
 
+resource "google_project_iam_binding" "sa-deployer-run-admin" {
+  project = var.project_id
+  role    = "roles/iam.serviceaccounts.actAs"
+  members = [
+    "github-actions-latest@manojproject1-396309.iam.gserviceaccount.com",
+  ]
+}
+
 resource "google_cloud_run_service" "my-second-cloudrun-service" {
     name = var.service_name
     location = var.service_location
