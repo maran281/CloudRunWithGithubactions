@@ -29,7 +29,15 @@ resource "google_cloud_run_service" "my-second-cloudrun-service" {
     }
 }
 
-data "google_iam_policy" "noauth" {
+resource "google_cloud_run_service_iam_member" "name" {
+  location    = google_cloud_run_service.my-second-cloudrun-service.location
+  project     = var.project_id
+  service     = google_cloud_run_service.my-second-cloudrun-service.name
+  role = "roles/run.invoker"
+  member = ["allUsers",]
+}
+
+/* data "google_iam_policy" "noauth" {
     binding {
       role = "roles/run.invoker"
       members = ["allUsers",]
@@ -42,6 +50,6 @@ resource "google_cloud_run_service_iam_policy" "noauth" {
   service     = google_cloud_run_service.my-second-cloudrun-service.name
 
   policy_data = data.google_iam_policy.noauth.policy_data
-}
+} */
 
 #main branch
