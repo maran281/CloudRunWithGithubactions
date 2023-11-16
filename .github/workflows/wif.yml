@@ -21,8 +21,8 @@ jobs:
               uses: 'google-github-actions/auth@v1'
               with:
                 token_format: 'access_token'
-                workload_identity_provider: 'projects/768624397534/locations/global/workloadIdentityPools/mypoolid2/providers/myproviderid2'
-                service_account: 'github-actions-latest@manojproject1-396309.iam.gserviceaccount.com'
+                workload_identity_provider: 'projects/582799354522/locations/global/workloadIdentityPools/mypoolid2/providers/myproviderid2'
+                service_account: 'github-actions-latest@plated-hash-405319.iam.gserviceaccount.com'
             
             - name: 'setup my cloud SDK'
               uses: 'google-github-actions/setup-gcloud@v1'
@@ -38,7 +38,7 @@ jobs:
             - name: 'Build the docker image'
               run: |
                 docker buildx create --use
-                docker build -t us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1 .
+                docker build -t us-east1-docker.pkg.dev/plated-hash-405319/githubaction-testing-cloudrun1/githubactioncodeimage1 .
             
             
             #Below command is used is used to configure Docker to authenticate to Artifact Registry Docker repositories 1. The us-east1-docker.pkg.dev is the hostname of the repository that you want to authenticate with 1.
@@ -52,7 +52,7 @@ jobs:
             - name: 'Push the docker image to artifact registry'
               run: |
                 docker buildx create --use
-                docker push us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1
+                docker push us-east1-docker.pkg.dev/plated-hash-405319/githubaction-testing-cloudrun1/githubactioncodeimage1
             
             - name: 'Initialize the terraform'
               run: |

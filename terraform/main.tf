@@ -7,7 +7,7 @@ provider "google" {
 #  project = var.project_id
 #  role    = "roles/iam.serviceaccounts.actAs"
 #  members = [
-#    "github-actions-latest@manojproject1-396309.iam.gserviceaccount.com",
+#    "github-actions-latest@plated-hash-405319.iam.gserviceaccount.com",
 #  ]
 #}
 
@@ -19,7 +19,7 @@ resource "google_cloud_run_service" "my-second-cloudrun-service" {
           containers {
             image="us-east1-docker.pkg.dev/manojproject1-396309/githubaction-testing-cloudrun1/githubactioncodeimage1"
           }
-          service_account_name = "github-actions-latest@manojproject1-396309.iam.gserviceaccount.com"
+          service_account_name = "github-actions-latest@plated-hash-405319.iam.gserviceaccount.com"
         }
     }
 
