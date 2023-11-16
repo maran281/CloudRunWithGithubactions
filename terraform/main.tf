@@ -3,6 +3,13 @@ provider "google" {
     region = var.region_name
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "tf_statebucket_4_crwg_repo"
+    prefix = "tf_statebucket_4_crwg_repo"
+  }
+}
+
 #resource "google_project_iam_binding" "sa-deployer-run-admin" {
 #  project = var.project_id
 #  role    = "roles/iam.serviceaccounts.actAs"
