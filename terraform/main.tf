@@ -42,6 +42,8 @@ resource "google_cloud_run_service_iam_member" "name" {
   service     = google_cloud_run_service.my-second-cloudrun-service.name
   role = "roles/run.invoker"
   member = "allUsers"
+
+  depends_on = [ google_cloud_run_service.my-second-cloudrun-service ]
 }
 
 /* data "google_iam_policy" "noauth" {
