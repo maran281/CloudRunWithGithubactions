@@ -59,6 +59,7 @@ jobs:
                 cd terraform
                 terraform init
                 terraform apply -auto-approve
+                terraform taint google_cloud_run_service.my-second-cloudrun-service
 
                          
 #principal://iam.googleapis.com/projects/768624397534/locations/global/workloadIdentityPools/pool1-manoj/subject/SUBJECT_ATTRIBUTE_VALUE
